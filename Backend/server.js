@@ -215,10 +215,10 @@ const startServer = async () => {
 
     // Khởi động server
     console.log(`🚀 Đang khởi động server trên port ${PORT}...`);
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server đang chạy trên port ${PORT}`);
       console.log(`🌐 Frontend URL: http://localhost:2222`);
-      console.log(`📡 API URL: http://localhost:${PORT}`);
+      console.log(`📡 API URL: http://0.0.0.0:${PORT}`);
       console.log(`🗄️  Database: SQLite`);
       console.log('✅ Server khởi tạo hoàn tất!');
     });

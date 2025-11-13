@@ -8,8 +8,9 @@
 const getApiBaseUrl = (): string => {
   const envUrl = import.meta.env.VITE_API_BASE_URL;
   
-  // Nếu envUrl rỗng hoặc chỉ có '/', sử dụng relative path (qua Nginx proxy)
-  if (!envUrl || envUrl === '/') {
+  // Nếu envUrl rỗng, undefined, hoặc chỉ có '/', sử dụng relative path (qua Nginx proxy)
+  // Đây là cách tốt nhất cho production khi dùng Nginx
+  if (!envUrl || envUrl.trim() === '' || envUrl === '/') {
     return '/api';
   }
   
