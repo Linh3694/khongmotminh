@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { getApiUrl, API_ENDPOINTS } from '@/config/api'
 
 // import heroBg from '/herosection.webp'
 import heroAsset1 from '/hero-asset-01.webp'
@@ -11,11 +12,6 @@ const HeroSection = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
-
-  // API base URL
-  const API_BASE = 'http://localhost:3333/api';
-
   // Lấy số lượng users khi component mount
   useEffect(() => {
     fetchStats();
@@ -24,7 +20,7 @@ const HeroSection = () => {
   const fetchStats = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${API_BASE}/stats`);
+      const response = await fetch(getApiUrl(API_ENDPOINTS.STATS));
       const data = await response.json();
 
       if (data.success) {

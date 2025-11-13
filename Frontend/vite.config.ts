@@ -15,4 +15,6 @@ export default defineConfig({
     port: 2222,
     host: '0.0.0.0', // Listen trên tất cả interfaces để có thể truy cập từ bên ngoài
   },
+  // Expose env variables to client
+  envPrefix: 'VITE_',
 })

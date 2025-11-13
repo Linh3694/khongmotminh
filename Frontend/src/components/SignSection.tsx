@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getApiUrl, API_ENDPOINTS } from '@/config/api';
 
 const SignSection = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
@@ -9,7 +10,7 @@ const SignSection = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('http://localhost:3333/api/stats');
+        const response = await fetch(getApiUrl(API_ENDPOINTS.STATS));
         const data = await response.json();
         if (data.success) {
           setTotalUsers(data.data.totalUsers);
@@ -41,7 +42,7 @@ const SignSection = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3333/api/users', {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.USERS), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +64,7 @@ const SignSection = () => {
         } else {
           // Nếu không có trong response, fetch lại từ API stats để đảm bảo chính xác
           try {
-            const statsResponse = await fetch('http://localhost:3333/api/stats');
+            const statsResponse = await fetch(getApiUrl(API_ENDPOINTS.STATS));
             const statsData = await statsResponse.json();
             if (statsData.success && statsData.data?.totalUsers !== undefined) {
               setTotalUsers(statsData.data.totalUsers);

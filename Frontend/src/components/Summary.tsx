@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { getApiUrl, API_ENDPOINTS } from '@/config/api';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -41,7 +42,7 @@ const Summary = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetch('http://localhost:3333/api/users');
+      const response = await fetch(getApiUrl(API_ENDPOINTS.USERS));
       const data = await response.json();
 
       if (data.success) {
