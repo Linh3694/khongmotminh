@@ -8,8 +8,27 @@ const app = express();
 const PORT = process.env.PORT || 3333;
 
 // Middleware
+// CORS configuration - cho phép cả localhost và production domain
+const allowedOrigins = [
+  'http://localhost:2222',
+  'http://42.96.40.246:2222',
+  'http://localhost:5173', // Vite default port
+];
+
 app.use(cors({
-  origin: 'http://localhost:2222', // Frontend Vite dev server
+  origin: function (origin, callback) {
+    // Cho phép requests không có origin (mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    // Kiểm tra origin có trong danh sách allowed không
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      // Trong production, có thể cho phép tất cả hoặc chỉ specific domains
+      // Hiện tại cho phép tất cả để dễ debug, có thể thắt chặt sau
+      callback(null, true);
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
