@@ -7,11 +7,11 @@
 // Nếu không có, mặc định là localhost:3333 (development)
 const getApiBaseUrl = (): string => {
   const envUrl = import.meta.env.VITE_API_BASE_URL;
-  
-  // Nếu envUrl rỗng, undefined, hoặc chỉ có '/', sử dụng relative path (qua Nginx proxy)
-  // Đây là cách tốt nhất cho production khi dùng Nginx
+
+  // Nếu envUrl rỗng, undefined, hoặc chỉ có '/', sử dụng localhost:3333 (direct backend connection)
+  // Thay đổi từ '/api' sang localhost:3333 để bypass nginx khi nginx chưa setup
   if (!envUrl || envUrl.trim() === '' || envUrl === '/') {
-    return '/api';
+    return 'http://localhost:3333/api';
   }
   
   // Nếu envUrl không có protocol, thêm http://

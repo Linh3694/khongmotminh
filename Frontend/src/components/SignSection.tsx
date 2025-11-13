@@ -10,13 +10,29 @@ const SignSection = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch(getApiUrl(API_ENDPOINTS.STATS));
+        const apiUrl = getApiUrl(API_ENDPOINTS.STATS);
+        console.log('Fetching stats from:', apiUrl);
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          console.error(`API response not ok: ${response.status} ${response.statusText}`);
+          return;
+        }
+
         const data = await response.json();
+        console.log('Stats response:', data);
+
         if (data.success) {
           setTotalUsers(data.data.totalUsers);
+        } else {
+          console.error('API returned success=false:', data);
         }
       } catch (error) {
         console.error('Lỗi khi lấy thống kê:', error);
+        if (error instanceof SyntaxError) {
+          console.error('Response không phải JSON. Có thể backend chưa chạy hoặc trả về HTML error page.');
+        }
       }
     };
 
