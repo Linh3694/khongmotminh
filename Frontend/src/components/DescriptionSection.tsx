@@ -8,16 +8,15 @@ const DescriptionSection = () => {
     >
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center text-white font-sans">
+        <div className="max-w-6xl mx-auto text-center text-white">
           {/* First paragraph */}
-          <p className="text-lg md:text-2xl mb-6 leading-relaxed text-balance">
+          <p className="text-lg md:text-3xl mb-6 leading-relaxed text-balance font-light">
             Không gian mạng mang lại rất nhiều giá trị cho học tập, làm việc và kết nối toàn cầu. Nhưng đi cùng với đó là các nguy cơ lừa đảo, dụ dỗ, bắt nạt, xâm hại dữ liệu và cô lập tinh thần – đặc biệt với trẻ em, thanh thiếu niên và phụ nữ. Trong rất nhiều trường hợp, nạn nhân phải đối diện một mình chỉ vì không kịp kết nối với gia đình, nhà trường hoặc kênh hỗ trợ.
           </p>
 
           {/* Second paragraph */}
-          <p className="text-lg md:text-2xl leading-relaxed text-balance">
-            Sự kết nối và hành động kịp thời chính là chìa khoá để phá vỡ 
-vòng vây cô lập. Vì vậy tôi tự nguyện tham gia ký cam kết này.
+          <p className="text-lg md:text-3xl leading-relaxed text-balance font-bold">
+            Sự kết nối và hành động kịp thời chính là chìa khoá để phá vỡ vòng vây cô lập. Vì vậy tôi tự nguyện tham gia ký cam kết này.
           </p>
         </div>
       </div>

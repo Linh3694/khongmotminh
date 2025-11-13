@@ -1,11 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
 
-/* Custom Font - Sweet Sans Pro */
+/* Custom Font - Sweet Sans Pro - Tất cả các biến thể */
+/* Hairline (100) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProHairline.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProHairlineItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Thin (100) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProThin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExThin (100) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProExThin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProExThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExLight (200) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProExLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProExLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light (300) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProMediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold (700) */
 @font-face {
   font-family: 'Sweet Sans Pro';
   src: url('./assets/Fonts/SweetSansPro-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProBoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Heavy (800/900) */
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProHeavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro';
+  src: url('./assets/Fonts/fonnts.com-SweetSansProHeavyItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -15,10 +168,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-family: 'Inter', 'Sweet Sans Pro', sans-serif;
+  --font-family: 'Mulish', sans-serif;
+  --font-family-sans: 'Sweet Sans Pro', sans-serif;
 
-  --font-family-heading: 'Sweet Sans Pro', 'Inter', sans-serif;
-  --font-family-body: 'Inter', sans-serif;
+  --font-family-heading: 'Sweet Sans Pro', 'Mulish', sans-serif;
+  --font-family-body: 'Mulish', sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -132,7 +286,99 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Mulish', sans-serif;
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Font Sans với các weight khác nhau */
+  .font-sans-hairline {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 100;
+  }
+  
+  .font-sans-thin {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 100;
+  }
+  
+  .font-sans-extralight {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 200;
+  }
+  
+  .font-sans-light {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 300;
+  }
+  
+  .font-sans-normal {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-sans-medium {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-sans-bold {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-sans-heavy {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 800;
+  }
+  
+  /* Font Sans Italic với các weight */
+  .font-sans-hairline-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .font-sans-thin-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .font-sans-extralight-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .font-sans-light-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .font-sans-normal-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .font-sans-medium-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .font-sans-bold-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .font-sans-heavy-italic {
+    font-family: 'Sweet Sans Pro', sans-serif;
+    font-weight: 800;
+    font-style: italic;
   }
 }

@@ -9,7 +9,7 @@ const SignSection = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/stats');
+        const response = await fetch('http://localhost:3333/api/stats');
         const data = await response.json();
         if (data.success) {
           setTotalUsers(data.data.totalUsers);
@@ -28,7 +28,10 @@ const SignSection = () => {
     setIsSubmitting(true);
     setSubmitMessage(null);
 
-    const formData = new FormData(event.currentTarget);
+    // Lưu reference đến form element trước khi async để tránh lỗi null
+    const form = event.currentTarget;
+    
+    const formData = new FormData(form);
     const userData = {
       fullName: formData.get('fullName'),
       email: formData.get('email'),
@@ -38,7 +41,7 @@ const SignSection = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/users', {
+      const response = await fetch('http://localhost:3333/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,17 +51,44 @@ const SignSection = () => {
 
       const data = await response.json();
 
-      if (data.success) {
-        setSubmitMessage({ type: 'success', message: 'Đăng ký thành công! Chào mừng bạn tham gia cộng đồng.' });
-        setTotalUsers(data.totalUsers); // Cập nhật counter từ response
-        // Reset form
-        event.currentTarget.reset();
+      // Kiểm tra cả status code (200-299) và data.success
+      if (response.ok && data.success) {
+        // Sử dụng message từ server hoặc message mặc định
+        const successMessage = data.message || 'Ký cam kết thành công. Cảm ơn bạn đã tham gia.';
+        setSubmitMessage({ type: 'success', message: successMessage });
+        
+        // Cập nhật số lượng users từ response
+        if (data.totalUsers !== undefined && typeof data.totalUsers === 'number') {
+          setTotalUsers(data.totalUsers);
+        } else {
+          // Nếu không có trong response, fetch lại từ API stats để đảm bảo chính xác
+          try {
+            const statsResponse = await fetch('http://localhost:3333/api/stats');
+            const statsData = await statsResponse.json();
+            if (statsData.success && statsData.data?.totalUsers !== undefined) {
+              setTotalUsers(statsData.data.totalUsers);
+            }
+          } catch (statsError) {
+            console.error('Lỗi khi lấy thống kê:', statsError);
+            // Không hiển thị lỗi cho user vì đăng ký đã thành công
+          }
+        }
+        
+        // Reset form sau khi thành công - kiểm tra null trước khi reset
+        if (form) {
+          form.reset();
+        }
       } else {
-        setSubmitMessage({ type: 'error', message: data.message });
+        // Xử lý lỗi từ server (400, 500, etc.)
+        const errorMessage = data.message || 'Đăng ký thất bại. Vui lòng thử lại.';
+        setSubmitMessage({ type: 'error', message: errorMessage });
       }
     } catch (error) {
       console.error('Lỗi khi đăng ký:', error);
-      setSubmitMessage({ type: 'error', message: 'Có lỗi xảy ra khi đăng ký. Vui lòng thử lại.' });
+      setSubmitMessage({ 
+        type: 'error', 
+        message: 'Có lỗi xảy ra khi đăng ký. Vui lòng kiểm tra kết nối và thử lại.' 
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -67,116 +97,123 @@ const SignSection = () => {
     <section className="bg-[#3500E0] py-16 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Main Quote */}
-        <div className="text-center text-white mb-12">
-          <p className="text-3xl md:text-4xl font-bold leading-[52px] uppercase">
-Bạn đã sẵn sàng chung tay vì một không gian mạng an toàn?          </p>
+        <div className="text-center text-white mb-12 mt-20">
+          <p className="text-3xl md:text-5xl font-sans-bold leading-[52px] uppercase">
+           Bạn đã sẵn sàng chung tay vì một không gian mạng an toàn?        
+          </p>
         </div>
 
         {/* Registration Card */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-lg shadow-2xl p-8">
+        <div className="max-w-6xl mx-auto">
+          <div className=" p-8">
             
 
             {submitMessage && (
-              <div className={`mb-6 p-4 rounded-md ${
+              <div className={`mb-6 p-6 rounded-lg shadow-md font-sans-normal text-lg ${
                 submitMessage.type === 'success'
-                  ? 'bg-green-50 border border-green-200 text-green-800'
-                  : 'bg-red-50 border border-red-200 text-red-800'
+                  ? 'bg-green-50 border-2 border-green-300 text-green-800'
+                  : 'bg-red-50 border-2 border-red-300 text-red-800'
               }`}>
-                {submitMessage.message}
+                <div className="flex items-center gap-3">
+                  <span className={`text-2xl font-bold ${
+                    submitMessage.type === 'success' ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {submitMessage.type === 'success' ? '✓' : '✕'}
+                  </span>
+                  <span>{submitMessage.message}</span>
+                </div>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4 p-4">
-              <div className="grid md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4"> 
+              <div className="bg-white rounded-lg shadow-2xl p-20">
+              <div className="grid md:grid-cols-2 gap-10 mb-10">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Họ và tên *
+                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                    Tên <span className="text-red-500">*</span>
                   </label>
                   <input
                     name="fullName"
                     type="text"
-                    className="w-full px-3 py-2 border  focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Nhập họ và tên đầy đủ"
+                    className="w-full px-3 py-2 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Đang học/Công tác tại *
+                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                    Đang học/Công tác tại
                   </label>
                   <input
                     name="currentPosition"
                     type="text"
-                    className="w-full px-3 py-2 border focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Ví dụ: Đại học Quốc gia Hà Nội, Công ty ABC..."
+                    className="w-full px-3 py-2 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-10 my-10">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Số điện thoại *
+                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                    Số điện thoại <span className="text-red-500">*</span>
                   </label>
                   <input
                     name="phone"
                     type="tel"
-                    className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="0987654321"
+                    className="w-full px-3 py-2 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email *
+                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     name="email"
                     type="email"
-                    className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="example@gmail.com"
+                    className="w-full px-3 py-2 border border-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="flex items-center">
+                <label className="flex items-center mt-20">
                   <input
                     name="termsAgreed"
                     type="checkbox"
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    className="h-9 w-9 border-black text-blue-600 focus:ring-blue-500"
                     required
                   />
-                  <span className="ml-2 text-sm font-semibold text-gray-700">
-                    TÔI CAM KẾT - CÙNG NHAU AN TOÀN TRỰC TUYẾN
+                  <span className="ml-2 text-2xl font-semibold text-gray-700 font-sans-normal">
+                    TÔI CAM KẾT - CÙNG NHAU AN TOÀN TRỰC TUYẾN <span className="text-red-500">*</span>
                   </span>
                 </label>
               </div>
+              </div>
 
+             <div className="flex items-center justify-center mx-auto mt-28">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                className=" mx-auto bg-[#FF0000] text-white text-5xl font-sans-bold px-40 py-5 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 uppercase disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Đang xử lý...' : 'Đăng ký tham gia'}
+                {isSubmitting ? 'Đang xử lý...' : 'Đồng ý'}
               </button>
+              </div>
             </form>
           </div>
+          <div className="w-[1148px] h-28 text-center justify-start text-white text-3xl font-light leading-[52px] mt-5">(*) Sau khi ký cam kết, bạn sẽ nhận được Cẩm nang An toàn Trực tuyến – ấn phẩm chính thức do Cục A05 – Bộ Công an và Liên minh Niềm Tin Số biên soạn, giúp mỗi cá nhân trở thành lá chắn bảo vệ cộng đồng mạng an toàn và nhân văn.</div>
         </div>
 
         {/* Counter Display */}
-        <div className="text-center text-white mt-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 inline-block">
-            <div className="text-2xl md:text-3xl font-bold">
-              {totalUsers.toLocaleString('vi-VN')}
-            </div>
-            <div className="text-sm opacity-90">
-              Thành viên đã tham gia
-            </div>
-          </div>
+        <div className="mt-[30%]">
+        <div className="self-stretch h-28 text-center justify-start text-white text-[291px] font-sans-bold uppercase leading-[52px]">
+          {totalUsers.toLocaleString('vi-VN')}
+        </div>
+        <div className="self-stretch h-28 text-center justify-start text-white text-5xl font-sans-bold uppercase leading-[52px] mt-10">
+          người thực hiện ký cam kết
+        </div>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ const TermSection = () => {
 
           {/* Image Gallery - 2 columns */}
           <div className="my-10">
-            <div className="grid grid-cols-2 gap-5 max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 gap-10 max-w-7xl mx-auto">
               <div>
                 <img
                   src="/row1-1.webp"
@@ -67,8 +67,8 @@ const TermSection = () => {
           </div>
 
           {/* Signature Section */}
-          <div className="mt-[25%] mx-auto">
-            <p className="text-4xl font-medium mb-6 uppercase leading-[52px]">
+          <div className="max-w-5xl mt-[20%] mx-auto">
+            <p className="text-3xl font-sans-bold mb-6 uppercase leading-[52px]">
              Mỗi cú click có trách nhiệm trong không gian số toàn cầu là một nền móng xây niềm tin số, để “không một mình”, và để chúng ta - trong kỷ nguyên số đang vươn mình – CÙNG NHAU AN TOÀN TRỰC TUYẾN.
             </p>
           </div>

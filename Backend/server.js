@@ -5,11 +5,11 @@ const { connectDB } = require('./database');
 const User = require('./models/User');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Frontend Vite dev server
+  origin: 'http://localhost:2222', // Frontend Vite dev server
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -129,7 +129,7 @@ app.post('/api/users', async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: 'Đăng ký thành công!',
+      message: 'Ký cam kết thành công. Cảm ơn bạn đã tham gia.',
       data: {
         id: newUser.id,
         fullName: newUser.fullName,
@@ -217,7 +217,7 @@ const startServer = async () => {
     console.log(`🚀 Đang khởi động server trên port ${PORT}...`);
     const server = app.listen(PORT, () => {
       console.log(`🚀 Server đang chạy trên port ${PORT}`);
-      console.log(`🌐 Frontend URL: http://localhost:5173`);
+      console.log(`🌐 Frontend URL: http://localhost:2222`);
       console.log(`📡 API URL: http://localhost:${PORT}`);
       console.log(`🗄️  Database: SQLite`);
       console.log('✅ Server khởi tạo hoàn tất!');
