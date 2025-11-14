@@ -27,6 +27,7 @@ export default defineConfig({
   server: {
     port: 2222,
     host: '0.0.0.0', // Listen trên tất cả interfaces để có thể truy cập từ bên ngoài
+    allowedHosts: ['khongmotminh.vn', 'www.khongmotminh.vn', 'localhost'],
   },
   build: {
     minify: 'esbuild', // Minify JavaScript code với esbuild
