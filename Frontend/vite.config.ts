@@ -5,10 +5,23 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react({
+      jsxRuntime: 'automatic',
+    }),
+    tailwindcss()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  esbuild: {
+    sourcemap: false, // Tắt source map trong esbuild (cả dev và build)
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      sourcemap: false, // Tắt source map trong pre-bundling
     },
   },
   server: {
