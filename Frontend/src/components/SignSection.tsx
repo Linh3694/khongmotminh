@@ -115,16 +115,14 @@ const SignSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Main Quote */}
         <div className="text-center text-white mb-12 mt-20">
-          <p className="text-3xl md:text-5xl font-sans-bold leading-[52px] uppercase">
+          <p className="text-xl md:text-5xl font-sans-bold leading-[52px] uppercase">
            Bạn đã sẵn sàng chung tay vì một không gian mạng an toàn?        
           </p>
         </div>
 
         {/* Registration Card */}
         <div className="max-w-6xl mx-auto">
-          <div className=" p-8">
-            
-
+          <div className="p-8">
             {submitMessage && (
               <div className={`mb-6 p-6 rounded-lg shadow-md font-sans-normal text-lg ${
                 submitMessage.type === 'success'
@@ -143,10 +141,10 @@ const SignSection = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4"> 
-              <div className="bg-white rounded-lg shadow-2xl p-20">
+              <div className="bg-white rounded-lg shadow-2xl lg:p-20 p-6">
               <div className="grid md:grid-cols-2 gap-10 mb-10">
                 <div>
-                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
                     Tên <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -157,7 +155,7 @@ const SignSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
                     Đang học/Công tác tại
                   </label>
                   <input
@@ -171,7 +169,7 @@ const SignSection = () => {
 
               <div className="grid md:grid-cols-2 gap-10 my-10">
                 <div>
-                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
                     Số điện thoại <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -182,7 +180,7 @@ const SignSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -195,40 +193,40 @@ const SignSection = () => {
               </div>
 
               <div>
-                <label className="flex items-center mt-20">
+                <label className="flex items-center lg:mt-20 mt-10">
                   <input
                     name="termsAgreed"
                     type="checkbox"
-                    className="h-9 w-9 border-black text-blue-600 focus:ring-blue-500"
+                    className="lg:h-9 lg:w-9 h-10 w-10 border-black border-2 text-red-500 focus:ring-red-500"
                     required
                   />
-                  <span className="ml-2 text-2xl font-semibold text-gray-700 font-sans-normal">
+                  <span className="ml-2 text-sm lg:text-2xl text-gray-700 font-sans-medium">
                     TÔI CAM KẾT - CÙNG NHAU AN TOÀN TRỰC TUYẾN <span className="text-red-500">*</span>
                   </span>
                 </label>
               </div>
               </div>
 
-             <div className="flex items-center justify-center mx-auto mt-28">
+             <div className="flex items-center justify-center mx-auto lg:mt-28 mt-20">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className=" mx-auto bg-[#FF0000] text-white text-5xl font-sans-bold px-40 py-5 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mx-auto bg-[#FF0000] text-white text-xl lg:text-5xl font-sans-bold lg:px-40 px-10 lg:py-5 py-3 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 uppercase disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Đang xử lý...' : 'Đồng ý'}
               </button>
               </div>
             </form>
           </div>
-          <div className="w-[1148px] h-28 text-center justify-start text-white text-3xl font-light leading-[52px] mt-5">(*) Sau khi ký cam kết, bạn sẽ nhận được Cẩm nang An toàn Trực tuyến – ấn phẩm chính thức do Cục A05 – Bộ Công an và Liên minh Niềm Tin Số biên soạn, giúp mỗi cá nhân trở thành lá chắn bảo vệ cộng đồng mạng an toàn và nhân văn.</div>
+          <div className="lg:w-[1148px] w-full h-28 text-center justify-start text-white lg:text-3xl text-sm font-light lg:leading-[52px] leading-[32px] mt-5">(*) Sau khi ký cam kết, bạn sẽ nhận được Cẩm nang An toàn Trực tuyến – ấn phẩm chính thức do Cục A05 – Bộ Công an và Liên minh Niềm Tin Số biên soạn, giúp mỗi cá nhân trở thành lá chắn bảo vệ cộng đồng mạng an toàn và nhân văn.</div>
         </div>
 
         {/* Counter Display */}
-        <div className="mt-[30%]">
-        <div className="self-stretch h-28 text-center justify-start text-white text-[291px] font-sans-bold uppercase leading-[52px]">
+        <div className="lg:mt-[30%] mt-[50%]">
+        <div className="self-stretch h-28 text-center justify-start text-white lg:text-[291px] text-[200px] font-sans-normal uppercase leading-[52px]">
           {totalUsers.toLocaleString('vi-VN')}
         </div>
-        <div className="self-stretch h-28 text-center justify-start text-white text-5xl font-sans-bold uppercase leading-[52px] mt-10">
+        <div className="self-stretch h-28 text-center justify-start text-white lg:text-5xl text-xl font-sans-bold uppercase leading-[52px] lg:mt-5 mt-0">
           người thực hiện ký cam kết
         </div>
         </div>
