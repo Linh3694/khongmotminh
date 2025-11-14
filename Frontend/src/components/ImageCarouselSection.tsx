@@ -50,10 +50,10 @@ const ImageCarouselSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-[#3500E0] overflow-hidden">
-      <div className="max-w-full">
+    <section className="py-20 bg-[#3500E0] overflow-hidden relative">
+      <div className="max-w-full relative">
         {/* Carousel Container */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <div
             ref={carouselRef}
             className="flex space-x-6"
