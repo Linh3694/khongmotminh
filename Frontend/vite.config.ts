@@ -18,6 +18,15 @@ export default defineConfig({
   build: {
     minify: 'esbuild', // Minify JavaScript code với esbuild
     sourcemap: false, // Không tạo source maps trong production
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Tắt code splitting tự động
+        format: 'es',
+      },
+    },
   },
   // Expose env variables to client
   envPrefix: 'VITE_',
