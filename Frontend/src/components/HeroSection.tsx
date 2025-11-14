@@ -11,10 +11,23 @@ import heroAsset4 from '/hero-asset-04.webp'
 const HeroSection = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   // Lấy số lượng users khi component mount
   useEffect(() => {
     fetchStats();
+  }, []);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
   const fetchStats = async () => {
@@ -52,8 +65,13 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat w-full h-[890px] flex items-center justify-center"
-      style={{ backgroundImage: `url(/herosection.webp)` }}
+      className="relative bg-center bg-no-repeat w-full h-[890px] flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${isMobile ? '/hero-section.webp' : '/herosection.webp'})`,
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+      }}
     >
 
       {/* Hero Assets Grid - 3 assets vertical */}

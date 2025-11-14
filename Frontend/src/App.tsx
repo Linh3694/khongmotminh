@@ -11,7 +11,7 @@ import Login from './components/Login'
 
 function HomePage() {
   return (
-    <div className="app">
+    <div >
       <Header />
       <HeroSection />
       <DescriptionSection />
