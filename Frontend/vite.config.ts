@@ -25,8 +25,12 @@ export default defineConfig({
       output: {
         manualChunks: undefined, // Tắt code splitting tự động
         format: 'es',
+        sourcemap: false, // Đảm bảo không tạo source map trong output
       },
     },
+  },
+  css: {
+    devSourcemap: false, // Tắt CSS source map trong development
   },
   // Expose env variables to client
   envPrefix: 'VITE_',
