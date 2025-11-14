@@ -76,10 +76,6 @@ const ImageCarouselSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Gradient overlays for smooth infinite effect */}
-        <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none"></div>
-        <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none"></div>
       </div>
     </section>
   );
