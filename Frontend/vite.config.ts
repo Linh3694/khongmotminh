@@ -15,6 +15,10 @@ export default defineConfig({
     port: 2222,
     host: '0.0.0.0', // Listen trên tất cả interfaces để có thể truy cập từ bên ngoài
   },
+  build: {
+    minify: 'terser', // Minify JavaScript code
+    sourcemap: false, // Không tạo source maps trong production
+  },
   // Expose env variables to client
   envPrefix: 'VITE_',
 })
