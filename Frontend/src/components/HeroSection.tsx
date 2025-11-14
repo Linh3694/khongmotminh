@@ -72,7 +72,7 @@ const HeroSection = () => {
     >
 
       {/* Hero Asset */}
-      <div className="absolute z-10 lg:top-[2%] lg:left-[10%] top-[8%] left-[2%] mx-10 lg:mx-0 items-center justify-start">
+      <div className="absolute z-10 lg:top-[2%] lg:left-[10%] top-[3%] left-0 mx-10 lg:mx-0 items-center justify-start">
         <img
           src={isMobile ? '/hero-asset-mobile.png' : '/hero-asset-desktop.png'}
           alt="Hero Asset"
