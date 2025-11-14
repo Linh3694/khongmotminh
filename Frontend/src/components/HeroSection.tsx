@@ -100,7 +100,7 @@ const HeroSection = () => {
         </h2>
 
         {/* Counter - Mobile: below main text, Desktop: hidden */}
-        <div className="lg:hidden flex flex-col items-center justify-center mt-10">
+        <div className="lg:hidden flex flex-col items-center justify-center mt-[10%]">
             <div className="text-9xl md:text-6xl text-white mb-4 drop-shadow-lg font-sans-normal">
             {isLoading ? '...' : totalUsers}
             </div>
