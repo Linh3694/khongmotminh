@@ -20,47 +20,47 @@ const TermSection = () => {
 
           {/* Image Gallery - 1 column on mobile, 2 columns on desktop */}
           <div className="my-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
-              <div>
+            <div className="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto">
+              <div className="w-full md:w-[calc(50%-20px)]">
                 <img
                   src="/row1-1.webp"
                   alt="Row 1 Image 1"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div> 
+              <div className="w-full md:w-[calc(50%-20px)]"> 
                 <img
                   src="/row1-2.webp"
                   alt="Row 1 Image 2"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-20px)]">
                 <img
                   src="/row2-1.webp"
                   alt="Row 2 Image 1"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-20px)]">
                 <img
                   src="/row2-2.webp"
                   alt="Row 2 Image 2"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-20px)]">
                 <img
                   src="/row3-1.webp"
                   alt="Row 3 Image 1"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-20px)]">
                 <img
                   src="/row3-2.webp"
                   alt="Row 3 Image 2"
-                  className="lg:w-full w-[80%] mx-auto h-fit object-contain hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
