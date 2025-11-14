@@ -144,7 +144,7 @@ const SignSection = () => {
               <div className="bg-white rounded-lg shadow-2xl lg:p-20 p-6">
               <div className="grid md:grid-cols-2 gap-10 mb-10">
                 <div>
-                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                    <label className="block text-xl lg:text-2xl  text-gray-700 mb-1 font-sans-medium">
                     Tên <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -155,7 +155,7 @@ const SignSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1">
+                  <label className="block text-xl lg:text-2xl  text-gray-700 mb-1 font-sans-medium">
                     Đang học/Công tác tại
                   </label>
                   <input
@@ -168,7 +168,7 @@ const SignSection = () => {
 
               <div className="grid md:grid-cols-2 gap-10 my-10">
                 <div>
-                  <label className="block text-xl lg:text-2xl  text-gray-700 mb-1">
+                  <label className="block text-xl lg:text-2xl  text-gray-700 mb-1 font-sans-medium">
                     Số điện thoại <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -179,7 +179,7 @@ const SignSection = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xl lg:text-2xl font-medium text-gray-700 mb-1 font-sans-normal">
+                  <label className="block text-xl lg:text-2xl  text-gray-700 mb-1 font-sans-medium">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -199,7 +199,7 @@ const SignSection = () => {
                     className="lg:h-9 lg:w-9 h-10 w-10 border-black border-2 text-red-500 focus:ring-red-500"
                     required
                   />
-                  <span className="ml-2 text-sm lg:text-2xl text-gray-700">
+                  <span className="ml-2 text-sm lg:text-2xl text-gray-700 font-sans-bold">
                     TÔI CAM KẾT - CÙNG NHAU AN TOÀN TRỰC TUYẾN <span className="text-red-500">*</span>
                   </span>
                 </label>

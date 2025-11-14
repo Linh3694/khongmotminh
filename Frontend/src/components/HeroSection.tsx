@@ -95,16 +95,16 @@ const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl text-white mb-10 drop-shadow-lg font-sans-bold text-center">
           TOGETHER FOR ONLINE SAFETY
         </h1>
-        <h2 className="text-xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg text-center font-sans-medium mx-5">
+        <h2 className="text-xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg text-center font-sans-bold mx-5">
           CHUNG TAY VÌ MỘT KHÔNG GIAN MẠNG AN TOÀN VÀ NHÂN VĂN
         </h2>
 
         {/* Counter - Mobile: below main text, Desktop: hidden */}
         <div className="lg:hidden flex flex-col items-center justify-center mt-[4%]">
-            <div className="text-9xl md:text-6xl text-white drop-shadow-lg font-sans-normal">
+            <div className="text-9xl md:text-6xl text-white drop-shadow-lg font-sans-bold">
             {isLoading ? '...' : totalUsers}
             </div>
-            <p className="text-lg md:text-2xl text-white mb-8 drop-shadow-lg uppercase font-sans-normal text-center">
+            <p className="text-lg md:text-2xl text-white mb-8 drop-shadow-lg uppercase font-sans-bold text-center">
             Người đã thực hiện ký cam kết
             </p>
         </div>
@@ -115,7 +115,7 @@ const HeroSection = () => {
             <div className="text-6xl md:text-8xl text-white mb-4 drop-shadow-lg font-sans-normal">
             {isLoading ? '...' : totalUsers}
             </div>
-            <p className="text-xl md:text-3xl text-white mb-16 drop-shadow-lg uppercase font-sans-normal">
+            <p className="text-xl md:text-3xl text-white mb-16 drop-shadow-lg uppercase font-sans-bold">
             Người đã thực hiện ký cam kết
             </p>
         </div>
