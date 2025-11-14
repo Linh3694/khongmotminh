@@ -5,16 +5,17 @@ const ImageCarouselSection = () => {
 
   // Danh sách ảnh cho carousel
   const images = [
-    '/row1-1.webp',
-    '/row1-2.webp',
-    '/row2-1.webp',
-    '/row2-2.webp',
-    '/row3-1.webp',
-    '/row3-2.webp',
-    '/hero-asset-01.webp',
-    '/hero-asset-02.webp',
-    '/hero-asset-03.webp',
-    '/hero-asset-04.webp'
+    '/sign/1.jpg',
+    '/sign/2.jpg',
+    '/sign/3.jpg',
+    '/sign/4.jpg',
+    '/sign/5.jpg',
+    '/sign/6.jpg',
+    '/sign/7.jpg',
+    '/sign/8.jpg',
+    '/sign/9.jpg',
+    '/sign/10.jpg',
+    '/sign/11.jpg'
   ];
 
   // Duplicate images for infinite scroll effect
@@ -64,7 +65,7 @@ const ImageCarouselSection = () => {
             {duplicatedImages.map((image, index) => (
               <div
                 key={`${image}-${index}`}
-                className="flex-shrink-0 w-80 h-60 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="shrink-0 w-80 h-60 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <img
                   src={image}
