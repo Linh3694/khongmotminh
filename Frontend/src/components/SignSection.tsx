@@ -223,7 +223,7 @@ const SignSection = () => {
 
         {/* Counter Display */}
         <div className="lg:mt-[30%] mt-[50%]">
-        <div className="self-stretch h-28 text-center justify-start text-white lg:text-[291px] text-[200px] font-sans-normal uppercase leading-[52px]">
+        <div className="self-stretch h-28 text-center justify-start text-white lg:text-[291px] text-[200px] font-sans-normal uppercase leading-[52px] mb-10">
           {totalUsers.toLocaleString('vi-VN')}
         </div>
         <div className="self-stretch h-28 text-center justify-start text-white lg:text-5xl text-xl font-sans-bold uppercase leading-[52px] lg:mt-5 mt-0">
