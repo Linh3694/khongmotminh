@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3333;
 const allowedOrigins = [
   'http://localhost:2222',
   'http://42.96.40.246:2222',
-  'http://localhost:5173', // Vite default port
+  'https://khongmotminh.vn', // Vite default port
 ];
 
 app.use(cors({
