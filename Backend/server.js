@@ -111,7 +111,7 @@ app.post('/api/users', async (req, res) => {
     const { fullName, email, phone, currentPosition, termsAgreed } = req.body;
 
     // Validation
-    if (!fullName || !email || !phone || !currentPosition || termsAgreed === undefined) {
+    if (!fullName || !email || !phone || termsAgreed === undefined) {
       return res.status(400).json({
         success: false,
         message: 'Tất cả các trường đều bắt buộc'
