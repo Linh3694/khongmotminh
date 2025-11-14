@@ -3,7 +3,7 @@
 const TermSection = () => {
   return (
     <section
-      className="relative w-full lg:h-[1970px]  bg-cover bg-center bg-no-repeat"
+      className="relative w-full h-auto min-h-screen lg:h-[1970px] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(/termsection.webp)` }}
     >
 
