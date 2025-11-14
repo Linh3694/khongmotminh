@@ -95,7 +95,7 @@ const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl text-white mb-10 drop-shadow-lg font-sans-bold text-center">
           TOGETHER FOR ONLINE SAFETY
         </h1>
-        <h2 className="text-xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg text-center font-sans-medium">
+        <h2 className="text-xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg text-center font-sans-medium mx-5">
           CHUNG TAY VÌ MỘT KHÔNG GIAN MẠNG AN TOÀN VÀ NHÂN VĂN
         </h2>
 
